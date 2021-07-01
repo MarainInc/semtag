@@ -619,7 +619,8 @@ function get_current {
     eval "$1=$lastversion"
   else
     local __buildinfo="$(git rev-parse --short HEAD)"
-    local __currentbranch="$(git rev-parse --abbrev-ref HEAD | cut -c1-$MAX_BRANCH_LENGTH)"
+    # Build metadata may only contain alphanumerics and hyphens per Semver spec. Replace invalid characters with `-`.
+    local __currentbranch="$(git rev-parse --abbrev-ref HEAD | sed "s@[^[:alnum:]-]@-@g" | cut -c1-$MAX_BRANCH_LENGTH)"
     if [ "$__currentbranch" != "master" ]; then
       __buildinfo="$__buildinfo.$__currentbranch"
     fi
