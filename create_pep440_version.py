@@ -14,7 +14,7 @@ Example:
 
 
 Testing:
-    This script include self-testing functionality. It can be accessed by running `./create_pep440_version.py test`
+    This script includes self-testing functionality. It can be accessed by running `./create_pep440_version.py test`
 """
 
 import sys
@@ -32,7 +32,7 @@ def create_pep440_version(semtag_version):
     """
 
     if "unstaged" in semtag_version or "uncommitted" in semtag_version:
-        raise ValueError("Cannot create PEP 400 version if there are uncommited or unstaged changes.")
+        raise ValueError("Cannot create PEP440-compliant version identifier if there are uncommited or unstaged changes.")
 
     # Regex pattern taken from https://semver.org/
     semver_pattern = r"^v(?P<major>0|[1-9]\d*)\.(?P<minor>0|[1-9]\d*)\.(?P<patch>0|[1-9]\d*)(?:-(?P<prerelease>(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+(?P<buildmetadata>[0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$"
