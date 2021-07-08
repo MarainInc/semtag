@@ -51,9 +51,9 @@ Commands:
   get        Returns both current final version and last tagged version.
   getlast    Returns the latest tagged version.
   getfinal   Returns the latest tagged final version.
-  getcurrent Returns the current version, based on the latest one, if there are uncommited or
-               unstaged changes, they will be reflected in the version, adding the number of
-               pending commits, current branch and commit hash.
+  getcurrent Returns the current version, based on the latest one. If there are pending commits
+              then the number of pending commits, the current branch and the commit hash will be appended. 
+              If there are uncommited or unstaged changes in the current branch, then this information will also be reflected in the version.
   final      Tags the current build as a final version, this only can be done on the master branch.
   candidate  Tags the current build as a release candidate, the tag will contain all
                the commits from the last final version.
