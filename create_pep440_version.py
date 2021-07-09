@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 
-"""Script to create a PEP440-compliant version identifier from a semtag version identifier.
+"""Script to create a PEP 440-compliant version identifier from a semtag version identifier.
+
+This script is useful when one wants to publish Python packages and tag them with the version information
+provided by semtag. Python packages must be tagged with a PEP 440-compliant version identifier and semantic
+versioning [is not fully compatible](https://www.python.org/dev/peps/pep-0440/#semantic-versioning) with PEP 440.
 
 This script expects one argument:
 - Semtag version identifier.
@@ -15,6 +19,9 @@ Example:
 
 Testing:
     This script includes self-testing functionality. It can be accessed by running `./create_pep440_version.py test`
+
+See Also:
+    - [PEP 440](https://www.python.org/dev/peps/pep-0440/)
 """
 
 import sys
