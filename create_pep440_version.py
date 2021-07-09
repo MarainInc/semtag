@@ -29,17 +29,17 @@ import re
 
 
 def create_pep440_version(semtag_version):
-    """Create a PEP440-compliant version identifier from a semtag version identifier.
+    """Create a PEP 440-compliant version identifier from a semtag version identifier.
 
     Args:
         semtag_version (str): Semtag version identifier
 
     Returns:
-        str: PEP440-compliant version identifier.
+        str: PEP 440-compliant version identifier.
     """
 
     if "unstaged" in semtag_version or "uncommitted" in semtag_version:
-        raise ValueError("Cannot create PEP440-compliant version identifier if there are uncommited or unstaged changes.")
+        raise ValueError("Cannot create PEP 440-compliant version identifier if there are uncommited or unstaged changes.")
 
     # Regex pattern taken from https://semver.org/
     semver_pattern = r"^v(?P<major>0|[1-9]\d*)\.(?P<minor>0|[1-9]\d*)\.(?P<patch>0|[1-9]\d*)(?:-(?P<prerelease>(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+(?P<buildmetadata>[0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$"
